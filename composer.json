@@ -1,5 +1,5 @@
 {
-    "name": "landrok/activitypub",
+    "name": "rivervanrain/activityphp",
     "type": "library",
     "version": "0.7.2",
     "description": "A PHP implementation of ActivityPub protocol based upon the ActivityStreams 2.0 data format.",

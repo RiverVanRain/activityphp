@@ -123,8 +123,8 @@ class WebFinger
     {
         foreach ($this->links as $link) {
             if (isset($link['rel'], $link['type'], $link['href'])) {
-                if ($link['rel'] == 'self' 
-                    && $link['type'] == 'application/activity+json'
+                if ($link['rel'] === 'self' 
+                    && ($link['type'] === 'application/activity+json' || $link['type'] === 'application/ld+json; profile="https://www.w3.org/ns/activitystreams"')
                 ) {
                     return $link['href'];
                 }

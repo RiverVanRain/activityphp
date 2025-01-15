@@ -68,13 +68,33 @@ class Request
      *
      * @param float|int $timeout
      * @param string $agent
+	 * @param string $host
+	 * @param string $date
+	 * @param string $digest
+	 * @param string $signature
      */
-    public function __construct($timeout = 10.0, $agent = '')
+    public function __construct($timeout = 10.0, $agent = '', $host = '', $date = '', $digest = '', $signature = '')
     {
         $headers = ['Accept' => self::HTTP_HEADER_ACCEPT];
 
         if ($agent) {
             $headers['User-Agent'] = $agent;
+        }
+		
+		if (!empty($host)) {
+            $headers['Host'] = $host;
+        }
+		
+		if (!empty($date)) {
+            $headers['Date'] = $date;
+        }
+		
+		if (!empty($digest)) {
+            $headers['Digest'] = $digest;
+        }
+		
+		if (!empty($signature)) {
+            $headers['Signature'] = $signature;
         }
 
         $this->client = new Client([
@@ -146,7 +166,6 @@ class Request
                 sleep($this->sleepBeforeRetry);
                 return $this->get($url);
             }
-
             throw new Exception($e->getMessage());
         }
 
