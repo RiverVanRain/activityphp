@@ -149,7 +149,7 @@ class Request
         }
 
         try {
-            $content = $this->client->get($url)->getBody()->getContents();
+            $content = elgg()->activityPubClient->request('GET', $url)->getBody()->getContents();
         } catch (Exception $e) {
             Server::server()->logger()->error(
                 __METHOD__ . ':failure',
