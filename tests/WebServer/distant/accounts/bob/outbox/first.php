@@ -9,7 +9,8 @@ $validAccount = 'bob@' . $_SERVER['HTTP_HOST'];
 $preferredUsername = substr($validAccount, 0, strpos($validAccount, '@'));
 
 header('Content-Type: application/jrd+json');
-echo json_encode([
+echo json_encode(
+    [
         'id'   => 'http://' . $_SERVER['HTTP_HOST'] . '/accounts/' . $preferredUsername,
         'type' => 'OrderedCollectionPage',
         'orderedItems' => [
@@ -24,6 +25,6 @@ echo json_encode([
                 ]
             ],
         ],
-    ]
-    , JSON_PRETTY_PRINT
+    ],
+    JSON_PRETTY_PRINT
 );

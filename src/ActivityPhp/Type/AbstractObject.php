@@ -42,7 +42,8 @@ abstract class AbstractObject
      */
     public function set($name, $value)
     {
-        if ($name !== '@context'
+        if (
+            $name !== '@context'
             && Config::get('undefined_properties') === 'strict'
         ) {
             $this->has($name, true);

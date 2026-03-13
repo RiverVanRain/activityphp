@@ -28,28 +28,28 @@ class HttpConfiguration extends AbstractConfiguration
      * @var string The User Agent.
      */
     protected $agent;
-	
-	/**
+
+    /**
      * @var string Host.
      */
     protected $host = '';
-	
-	/**
+
+    /**
      * @var string Date.
      */
     protected $date = '';
-	
-	/**
+
+    /**
      * @var string Digest.
      */
     protected $digest = '';
-	
-	/**
+
+    /**
      * @var string Signature.
      */
     protected $signature = '';
-	
-	/**
+
+    /**
      * @var int Max number of retries
      */
     protected $retries = 2;

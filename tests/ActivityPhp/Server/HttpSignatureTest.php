@@ -161,10 +161,10 @@ class HttpSignatureTest extends TestCase
         $path = '/my-path?q=ok';
 
         $rsa = PublicKeyLoader::loadPrivateKey(
-                        file_get_contents(
-                            dirname(__DIR__, 2) . '/WebServer/distant/keys/private.pem'
-                        )
-                    )->withHash("sha256"); // private key
+            file_get_contents(
+                dirname(__DIR__, 2) . '/WebServer/distant/keys/private.pem'
+            )
+        )->withHash("sha256"); // private key
 
         $plaintext = "(request-target) post $path\ndate: $date";
         $signature = $rsa->sign($plaintext);
@@ -223,10 +223,10 @@ class HttpSignatureTest extends TestCase
         $path = '/my-path?q=ok';
 
         $rsa = PublicKeyLoader::loadPrivateKey(
-                file_get_contents(
-                    dirname(__DIR__, 2) . '/WebServer/distant/keys/private.pem'
-                )
-            )->withHash("sha256"); // private key
+            file_get_contents(
+                dirname(__DIR__, 2) . '/WebServer/distant/keys/private.pem'
+            )
+        )->withHash("sha256"); // private key
 
         $plaintext = "(request-target) post $path\nhost: $host\ndate: $date";
         $signature = $rsa->sign($plaintext);
@@ -283,10 +283,10 @@ class HttpSignatureTest extends TestCase
         $path = '/my-path?q=ok';
 
         $rsa = PublicKeyLoader::loadPrivateKey(
-                file_get_contents(
-                    dirname(__DIR__, 2) . '/WebServer/distant/keys/private.pem'
-                )
-            )->withHash("sha256"); // private key
+            file_get_contents(
+                dirname(__DIR__, 2) . '/WebServer/distant/keys/private.pem'
+            )
+        )->withHash("sha256"); // private key
 
         $plaintext = "(request-target) post $path\nhost: $host\ndate: $date";
         $signature = $rsa->sign($plaintext);
@@ -344,10 +344,10 @@ class HttpSignatureTest extends TestCase
         $path = '/my-path?q=ok';
 
         $rsa = PublicKeyLoader::loadPrivateKey(
-                file_get_contents(
-                    dirname(__DIR__, 2) . '/WebServer/distant/keys/private.pem'
-                )
-            )->withHash("sha256"); // private key
+            file_get_contents(
+                dirname(__DIR__, 2) . '/WebServer/distant/keys/private.pem'
+            )
+        )->withHash("sha256"); // private key
 
         $plaintext = "(request-target) post $path\nhost: $host\ndate: $date";
         $signature = $rsa->sign($plaintext);
@@ -407,10 +407,10 @@ class HttpSignatureTest extends TestCase
         $path = '/my-path?q=ok';
 
         $rsa = PublicKeyLoader::loadPrivateKey(
-                file_get_contents(
-                    dirname(__DIR__, 2) . '/WebServer/distant/keys/private.pem'
-                )
-            )->withHash("sha256"); // private key
+            file_get_contents(
+                dirname(__DIR__, 2) . '/WebServer/distant/keys/private.pem'
+            )
+        )->withHash("sha256"); // private key
 
         $plaintext = "(request-target) post $path\nhost: $host\ndate: $date";
         $signature = $rsa->sign($plaintext);
@@ -463,10 +463,10 @@ class HttpSignatureTest extends TestCase
         $path = '/my-path?q=ok';
 
         $rsa = PublicKeyLoader::loadPrivateKey(
-                file_get_contents(
-                    dirname(__DIR__, 2) . '/WebServer/distant/keys/private.pem'
-                )
-            )->withHash("sha256"); // private key
+            file_get_contents(
+                dirname(__DIR__, 2) . '/WebServer/distant/keys/private.pem'
+            )
+        )->withHash("sha256"); // private key
 
         $plaintext = "(request-target) post $path\nhost: $host\ndate: $date";
         $signature = $rsa->sign($plaintext);

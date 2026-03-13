@@ -117,7 +117,8 @@ class Actor
      */
     public function getPublicKeyPem()
     {
-        if (! isset($this->actor->publicKey)
+        if (
+            ! isset($this->actor->publicKey)
             || ! is_array($this->actor->publicKey)
             || ! isset($this->actor->publicKey['publicKeyPem'])
         ) {

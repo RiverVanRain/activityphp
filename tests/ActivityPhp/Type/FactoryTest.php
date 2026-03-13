@@ -74,7 +74,7 @@ class FactoryTest extends TestCase
             ['Tombstone'],
             ['Video'],
         ];
-	}
+    }
 
     /**
      * Check that all core objects have a correct type property.

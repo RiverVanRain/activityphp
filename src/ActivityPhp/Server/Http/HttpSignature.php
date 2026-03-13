@@ -18,7 +18,7 @@ use phpseclib3\Crypt\PublicKeyLoader;
 
 /**
  * HTTP signatures tool
- */ 
+ */
 class HttpSignature
 {
     public const SIGNATURE_PATTERN = '/^
@@ -30,7 +30,7 @@ class HttpSignature
         (algorithm="(?P<algorithm>[\w\s-]+)",)?
         (headers="\(request-target\) (?P<headers>[\w\s-]+)",)?
         signature="(?P<signature>[\w+\/]+={0,2})"
-    /x';       
+    /x';
 
     /**
      * Allowed keys when splitting signature
@@ -61,7 +61,7 @@ class HttpSignature
      * Verify an incoming message based upon its HTTP signature
      *
      * @param  \Symfony\Component\HttpFoundation\Request $request
-     * @return bool True if signature has been verified. Otherwise false 
+     * @return bool True if signature has been verified. Otherwise false
      */
     public function verify(Request $request): bool
     {
@@ -94,26 +94,26 @@ class HttpSignature
 
         $this->server->logger()->debug('publicKeyPem', [$publicKeyPem]);
 
-        // Create a comparison string from the plaintext headers we got 
-        // in the same order as was given in the signature header, 
+        // Create a comparison string from the plaintext headers we got
+        // in the same order as was given in the signature header,
         $data = $this->getPlainText(
-            explode(' ', trim($headers)), 
+            explode(' ', trim($headers)),
             $request
         );
 
-        // Verify that string using the public key and the original 
+        // Verify that string using the public key and the original
         // signature.
         $rsa = PublicKeyLoader::loadPublicKey($publicKeyPem)
-                  ->withHash('sha256'); 
+                  ->withHash('sha256');
 
-        return $rsa->verify($data, base64_decode($signature, true)); 
+        return $rsa->verify($data, base64_decode($signature, true));
     }
 
     /**
      * Split HTTP signature into its parts (keyId, headers and signature)
      */
     public function splitSignature(string $signature): array
-    {        
+    {
         if (!preg_match(self::SIGNATURE_PATTERN, $signature, $matches)) {
             $this->server->logger()->info(
                 'Signature pattern failed',
@@ -128,16 +128,16 @@ class HttpSignature
             $matches['headers'] = 'date';
         }
 
-        return array_filter($matches, function($key) {
+        return array_filter($matches, function ($key) {
                 return !is_int($key) && in_array($key, $this->allowedKeys);
-        },  ARRAY_FILTER_USE_KEY );        
+        }, ARRAY_FILTER_USE_KEY);
     }
 
     /**
      * Get plain text that has been originally signed
-     * 
+     *
      * @param  array $headers HTTP header keys
-     * @param  \Symfony\Component\HttpFoundation\Request $request 
+     * @param  \Symfony\Component\HttpFoundation\Request $request
      */
     private function getPlainText(array $headers, Request $request): string
     {
@@ -146,7 +146,7 @@ class HttpSignature
             '(request-target) %s %s%s',
             strtolower($request->getMethod()),
             $request->getPathInfo(),
-            $request->getQueryString() 
+            $request->getQueryString()
                 ? '?' . $request->getQueryString() : ''
         );
 
@@ -156,6 +156,6 @@ class HttpSignature
             }
         }
 
-        return implode("\n", $strings);   
+        return implode("\n", $strings);
     }
 }

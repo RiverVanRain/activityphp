@@ -15,18 +15,18 @@ use ActivityPhp\Type\Dialect;
 
 /**
  * Dialects configuration stack
- */ 
+ */
 class DialectsConfiguration extends AbstractConfiguration
 {
     /**
      * Dispatch configuration parameters
-     * 
+     *
      * @param array $params
      */
     public function __construct(array $params = [])
     {
         foreach ($params as $dialect => $definitions) {
             Dialect::add($dialect, $definitions);
-        }    
+        }
     }
 }

@@ -3,7 +3,6 @@
 require dirname(__DIR__) . '/vendor/autoload.php';
 
 if (substr(php_uname(), 0, 7) !== 'Windows') {
-
     $webservers = [
         'local' => [
             'host'   => 'localhost',
@@ -17,7 +16,6 @@ if (substr(php_uname(), 0, 7) !== 'Windows') {
 
     // Starts web servers
     foreach ($webservers as $name => $config) {
-
         extract($config);
 
         // Starts webserver
@@ -46,7 +44,7 @@ if (substr(php_uname(), 0, 7) !== 'Windows') {
     }
 
     // Kill web servers when the process ends
-    register_shutdown_function(function() use ($webservers) {
+    register_shutdown_function(function () use ($webservers) {
         foreach ($webservers as $name => $config) {
             extract($config);
             echo sprintf(

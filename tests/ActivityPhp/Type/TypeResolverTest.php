@@ -16,8 +16,8 @@ class TypeResolverTest extends TestCase
         $type = Type::create('Note');
 
         $this->assertEquals(
-            false, 
+            false,
             TypeResolver::isScope($type, 'undefined scope')
         );
-	}
+    }
 }

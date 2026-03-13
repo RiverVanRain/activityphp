@@ -39,7 +39,7 @@ class ServerOntologyTest extends TestCase
             'bob',
             $person->getPlaylists()
         );
-        
+
         Ontology::clear();
     }
 
@@ -70,7 +70,7 @@ class ServerOntologyTest extends TestCase
         );
 
         Ontology::clear();
-	}
+    }
 
     /**
      * Check that an ontology can be define from server configuration

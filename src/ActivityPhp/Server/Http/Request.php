@@ -68,10 +68,10 @@ class Request
      *
      * @param float|int $timeout
      * @param string $agent
-	 * @param string $host
-	 * @param string $date
-	 * @param string $digest
-	 * @param string $signature
+     * @param string $host
+     * @param string $date
+     * @param string $digest
+     * @param string $signature
      */
     public function __construct($timeout = 10.0, $agent = '', $host = '', $date = '', $digest = '', $signature = '')
     {
@@ -80,20 +80,20 @@ class Request
         if ($agent) {
             $headers['User-Agent'] = $agent;
         }
-		
-		if (!empty($host)) {
+
+        if (!empty($host)) {
             $headers['Host'] = $host;
         }
-		
-		if (!empty($date)) {
+
+        if (!empty($date)) {
             $headers['Date'] = $date;
         }
-		
-		if (!empty($digest)) {
+
+        if (!empty($digest)) {
             $headers['Digest'] = $digest;
         }
-		
-		if (!empty($signature)) {
+
+        if (!empty($signature)) {
             $headers['Signature'] = $signature;
         }
 
@@ -155,8 +155,9 @@ class Request
                 __METHOD__ . ':failure',
                 ['url' => $url, 'message' => $e->getMessage()]
             );
-            if ($this->maxRetries === -1
-             || $this->retryCounter < $this->maxRetries
+            if (
+                $this->maxRetries === -1
+                || $this->retryCounter < $this->maxRetries
             ) {
                 $this->retryCounter++;
                 Server::server()->logger()->info(

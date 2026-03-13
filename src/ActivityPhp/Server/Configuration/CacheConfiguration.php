@@ -98,7 +98,8 @@ class CacheConfiguration extends AbstractConfiguration
 
         // An instanciated pool has been given as parameter but is not
         // Psr\Cache compliant
-        if (is_object($this->pool)
+        if (
+            is_object($this->pool)
             && !($this->pool instanceof CacheItemPoolInterface)
         ) {
             $message = sprintf(

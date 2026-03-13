@@ -37,8 +37,10 @@ class RelValidator implements ValidatorInterface
         // Must be a valid Rel
         if (is_array($value)) {
             foreach ($value as $key => $item) {
-                if (! is_int($key)
-                    || ! Util::validateRel($item)) {
+                if (
+                    ! is_int($key)
+                    || ! Util::validateRel($item)
+                ) {
                     return false;
                 }
             }

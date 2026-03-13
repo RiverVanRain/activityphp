@@ -31,7 +31,7 @@ class FetchOutboxTest extends TestCase
 
         $outbox = $server->outbox($handle);
 
-        // A box instance 
+        // A box instance
         $this->assertInstanceOf(
             AbstractBox::class,
             $outbox
@@ -79,12 +79,11 @@ class FetchOutboxTest extends TestCase
 
         $webfinger = new WebFinger($data);
 
-        // Assert 
+        // Assert
         $this->assertEquals(
             null,
             $webfinger->getProfileId()
         );
     }
 */
-
 }

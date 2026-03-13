@@ -56,7 +56,8 @@ class Configuration
     public function dispatchParameters(array $params): void
     {
         // Create default configuration for each component
-        foreach ([
+        foreach (
+            [
                 'cache',
                 'logger',
                 'instance',
@@ -65,7 +66,6 @@ class Configuration
                 'ontologies'
             ] as $config
         ) {
-
             if (isset($params[$config]) && ! is_array($params[$config])) {
                 throw new Exception(
                     "Configuration value for '{$config}' must be an array"
@@ -74,7 +74,8 @@ class Configuration
 
             if (is_null($this->$config)) {
                 $handler = sprintf(
-                    self::CONFIG_NS_PATTERN, ucfirst($config)
+                    self::CONFIG_NS_PATTERN,
+                    ucfirst($config)
                 );
 
                 $this->$config = new $handler(

@@ -37,8 +37,9 @@ abstract class ActorFactory
     public static function create(string $url)
     {
         // Is it a local actor?
-        if (parse_url($url, PHP_URL_HOST) == self::$server->config('instance.host')
-         && parse_url($url, PHP_URL_PORT) == self::$server->config('instance.port')
+        if (
+            parse_url($url, PHP_URL_HOST) == self::$server->config('instance.host')
+            && parse_url($url, PHP_URL_PORT) == self::$server->config('instance.port')
         ) {
             return self::createLocalActor($url);
         }
@@ -47,15 +48,16 @@ abstract class ActorFactory
             (new Request(
                 self::$server->config('http.timeout'),
                 self::$server->config('http.agent'),
-				self::$server->config('http.host'),
-				self::$server->config('http.date'),
-				self::$server->config('http.digest'),
-				self::$server->config('http.signature'),
+                self::$server->config('http.host'),
+                self::$server->config('http.date'),
+                self::$server->config('http.digest'),
+                self::$server->config('http.signature'),
             ))->get($url),
             true
         );
 
-        if (! is_array($content)
+        if (
+            ! is_array($content)
             || ! count($content)
             || ! isset($content['type'])
         ) {
@@ -68,7 +70,8 @@ abstract class ActorFactory
         // An actor must have a set of properties to be a valid
         // ActivityPhp profile
         foreach (['id', 'preferredUsername'] as $property) {
-            if ($actor->has($property)
+            if (
+                $actor->has($property)
                 && ! is_null($actor->$property)
             ) {
                 continue;

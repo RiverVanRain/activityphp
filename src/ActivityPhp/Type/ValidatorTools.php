@@ -42,7 +42,8 @@ abstract class ValidatorTools implements ValidatorInterface
         }
 
         foreach ($map as $key => $value) {
-            if (! Util::validateBcp47($key)
+            if (
+                ! Util::validateBcp47($key)
                 || ! Validator::validate($type, $value, $container)
             ) {
                 return false;
@@ -174,8 +175,10 @@ abstract class ValidatorTools implements ValidatorInterface
                 $item = Util::arrayToType($item);
             }
 
-            if (is_object($item)
-                && Util::isLinkOrUrlObject($item)) {
+            if (
+                is_object($item)
+                && Util::isLinkOrUrlObject($item)
+            ) {
                 return true;
             }
 

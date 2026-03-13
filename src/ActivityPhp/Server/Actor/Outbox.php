@@ -116,10 +116,10 @@ class Outbox extends AbstractBox
 
             // Cast as an ActivityStreams type
             $activity = Type::create($payload);
-
         } catch (Exception $exception) {
             $this->getServer()->logger()->error(
-                $this->actor->get()->preferredUsername. ':' . __METHOD__, [
+                $this->actor->get()->preferredUsername . ':' . __METHOD__,
+                [
                     $exception->getMessage()
                 ]
             );
@@ -129,7 +129,7 @@ class Outbox extends AbstractBox
 
         // Log
         $this->getServer()->logger()->debug(
-            $this->actor->get()->preferredUsername. ':' . __METHOD__ . '(starting)',
+            $this->actor->get()->preferredUsername . ':' . __METHOD__ . '(starting)',
             $activity->toArray()
         );
 
@@ -173,7 +173,7 @@ class Outbox extends AbstractBox
 
         // Log
         $this->getServer()->logger()->debug(
-            $this->actor->get()->preferredUsername. ':' . __METHOD__ . '(posted)',
+            $this->actor->get()->preferredUsername . ':' . __METHOD__ . '(posted)',
             $activity->toArray()
         );
 

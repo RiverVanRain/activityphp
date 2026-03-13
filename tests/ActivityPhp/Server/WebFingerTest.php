@@ -39,7 +39,7 @@ class WebFingerTest extends TestCase
             ['bob@localhost:8000', 'getLinks', $sample['links']                 ], # getLinks()
             ['http://localhost:8000/accounts/bob', 'toArray', $sample           ], # toArray() with an ActivityPhp profile id
         ];
-	}
+    }
 
     /**
      * Exception scenarios provider
@@ -75,7 +75,7 @@ class WebFingerTest extends TestCase
             ['http://localhost:8000/accounts/empty-profile', 'toArray', $sample ], # Bad response from server (ActivityPhp profile is empty)
             ['http://localhost:8000/accounts/missing-property', 'toArray', $sample ], # Bad response from server (Missing preferredUsername)
         ];
-	}
+    }
 
     /**
      * Check that all response are valid
@@ -136,56 +136,56 @@ class WebFingerTest extends TestCase
     {
         # data
         return [
-[[
-    'subject' => ['acct:bob@localhost:8000'],
-    'aliases' => [
+        [[
+        'subject' => ['acct:bob@localhost:8000'],
+        'aliases' => [
         'http//localhost:8000/accounts/bob'
-    ],
-    'links' => [
+        ],
+        'links' => [
         [
             'rel' => 'self',
             'type' => 'application/activity+json',
             'href' => 'http://localhost:8000/accounts/bob',
         ]
-    ]
-]                                                                      ], # Malformed subject
-[[
-    'subject' => 'acct:bob@localhost:8000',
-    'aliases' => [
+        ]
+        ]                                                                      ], # Malformed subject
+        [[
+        'subject' => 'acct:bob@localhost:8000',
+        'aliases' => [
         ['http//localhost:8000/accounts/bob']
-    ],
-    'links' => [
+        ],
+        'links' => [
         [
             'rel' => 'self',
             'type' => 'application/activity+json',
             'href' => 'http://localhost:8000/accounts/bob',
         ]
-    ]
-]                                                                      ], # Malformed aliases
-[[
-    'subject' => 'acct:bob@localhost:8000',
-    'aliases' => [
+        ]
+        ]                                                                      ], # Malformed aliases
+        [[
+        'subject' => 'acct:bob@localhost:8000',
+        'aliases' => [
         'http//localhost:8000/accounts/bob'
-    ],
-    'links' => [
+        ],
+        'links' => [
          'http://localhost:8000/accounts/bob',
-    ]
-]                                                                      ], # Malformed links: subelement is not an array
-[[
-    'subject' => 'acct:bob@localhost:8000',
-    'aliases' => [
+        ]
+        ]                                                                      ], # Malformed links: subelement is not an array
+        [[
+        'subject' => 'acct:bob@localhost:8000',
+        'aliases' => [
         'http//localhost:8000/accounts/bob'
-    ],
-    'links' => [
+        ],
+        'links' => [
         [
             'type' => 'application/activity+json',
             'href' => 'http://localhost:8000/accounts/bob',
         ]
-    ]
-]                                                                      ], # Malformed links: subelement does not have a rel key
+        ]
+        ]                                                                      ], # Malformed links: subelement does not have a rel key
 
         ];
-	}
+    }
 
     /**
      * Check that all tests are failing

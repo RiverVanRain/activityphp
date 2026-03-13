@@ -70,7 +70,7 @@ class CacheTest extends TestCase
     {
         $server = new Server([
             'cache' => [
-                'pool'  => new ArrayAdapter
+                'pool'  => new ArrayAdapter()
             ]
         ]);
 
@@ -92,7 +92,7 @@ class CacheTest extends TestCase
 
         $server = new Server([
             'cache' => [
-                'pool'  => new \stdClass
+                'pool'  => new \stdClass()
             ]
         ]);
     }

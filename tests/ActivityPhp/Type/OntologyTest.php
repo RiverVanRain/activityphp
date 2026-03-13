@@ -9,11 +9,11 @@ use PHPUnit\Framework\TestCase;
 use ActivityPhpTest\MyCustomOntology;
 
 abstract class MyNotwellDefinedOntology
-{           
+{
     /**
-     * A definition of custom's ontology to overload Activity 
+     * A definition of custom's ontology to overload Activity
      * Streams vocabulary.
-     * 
+     *
      * @var array
      */
     protected static $definitions = [
@@ -29,20 +29,20 @@ class OntologyTest extends TestCase
     public function testAddNewOne()
     {
         Ontology::clear();
-        
+
         // Add and load this dialect
         Ontology::add('custom-ontology', MyCustomOntology::class);
-        
+
         // Set this dialect property for one type
         $type = Type::create('Person', ['myOntologyField' => 1]);
 
         $this->assertEquals(
-            1, 
+            1,
             $type->myOntologyField
         );
-        
+
         Ontology::clear();
-	}
+    }
 
     /**
      * Should throw an Exception when ontology name is not allowed
@@ -52,12 +52,12 @@ class OntologyTest extends TestCase
         $this->expectException(Exception::class);
 
         Ontology::clear();
-        
+
         $ontology = 'MyClass';
-        
+
         // Add and load this dialect
         Ontology::add('*', $ontology);
-	}
+    }
 
     /**
      * Should throw an Exception when ontology class does not exist
@@ -67,12 +67,12 @@ class OntologyTest extends TestCase
         $this->expectException(Exception::class);
 
         Ontology::clear();
-        
+
         $ontology = 'MyClass';
-        
+
         // Add and load this dialect
         Ontology::add('cus-ontology', $ontology);
-	}
+    }
 
     /**
      * Should throw an Exception when ontology cdoes not implement
@@ -83,8 +83,8 @@ class OntologyTest extends TestCase
         $this->expectException(Exception::class);
 
         Ontology::clear();
-        
+
         // Add and load this dialect
         Ontology::add('cus-ontology', MyNotwellDefinedOntology::class);
-	}
+    }
 }

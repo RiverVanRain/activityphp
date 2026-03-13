@@ -46,7 +46,6 @@ class IconValidator implements ValidatorInterface
 
         if (is_array($item)) {
             foreach ($item as $value) {
-
                 if (is_array($value)) {
                     $value = Util::arrayToType($value);
                 }

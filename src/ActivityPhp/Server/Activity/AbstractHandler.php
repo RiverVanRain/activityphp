@@ -15,7 +15,7 @@ use Symfony\Component\HttpFoundation\Response;
 
 /**
  * Abstract class for all activity handlers
- */ 
+ */
 abstract class AbstractHandler implements HandlerInterface
 {
     /**
@@ -33,7 +33,7 @@ abstract class AbstractHandler implements HandlerInterface
 
     /**
      * Get HTTP response instance
-     * 
+     *
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function getResponse()

@@ -59,7 +59,7 @@ class OutboxPostTest extends TestCase
             ['bad JSON', 'application/activity+json', 400                          ], # Bad JSON payload should return 400 Bad request
             ['bad JSON', 'text/html,application/xhtml+xml,application/xml', 400    ], # Accept header MUST be valid
         ];
-	}
+    }
 
     /**
      * Check that all response are valid

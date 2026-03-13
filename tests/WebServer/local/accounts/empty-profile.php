@@ -6,6 +6,7 @@
  */
 
 header('Content-Type: application/jrd+json');
-echo json_encode([]
-    , JSON_PRETTY_PRINT
+echo json_encode(
+    [],
+    JSON_PRETTY_PRINT
 );

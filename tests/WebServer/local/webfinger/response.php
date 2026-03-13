@@ -16,7 +16,8 @@ header('Content-Type: application/jrd+json');
 
 switch ($handle) {
     case 'bob@' . $_SERVER['HTTP_HOST']:
-        echo json_encode([
+        echo json_encode(
+            [
                 'subject' => 'acct:' . $handle,
                 'aliases' => [
                     'http//' . $_SERVER['HTTP_HOST'] . '/accounts/' . $preferredUsername,
@@ -28,12 +29,13 @@ switch ($handle) {
                         'href' => 'http://' . $_SERVER['HTTP_HOST'] . '/accounts/' . $preferredUsername
                     ]
                 ]
-            ]
-            , JSON_PRETTY_PRINT
+            ],
+            JSON_PRETTY_PRINT
         );
         break;
     case 'bob-subject-array@' . $_SERVER['HTTP_HOST']:
-        echo json_encode([
+        echo json_encode(
+            [
                 'subject' => ['acct:' . $handle],
                 'aliases' => [
                     'http//' . $_SERVER['HTTP_HOST'] . '/accounts/' . $preferredUsername,
@@ -45,12 +47,13 @@ switch ($handle) {
                         'href' => 'http://' . $_SERVER['HTTP_HOST'] . '/accounts/' . $preferredUsername
                     ]
                 ]
-            ]
-            , JSON_PRETTY_PRINT
+            ],
+            JSON_PRETTY_PRINT
         );
         break;
     case 'bob-malformed-aliases@' . $_SERVER['HTTP_HOST']:
-        echo json_encode([
+        echo json_encode(
+            [
                 'subject' => ['acct:' . $handle],
                 'aliases' => [
                     ['http//' . $_SERVER['HTTP_HOST'] . '/accounts/' . $preferredUsername],
@@ -62,22 +65,24 @@ switch ($handle) {
                         'href' => 'http://' . $_SERVER['HTTP_HOST'] . '/accounts/' . $preferredUsername
                     ]
                 ]
-            ]
-            , JSON_PRETTY_PRINT
+            ],
+            JSON_PRETTY_PRINT
         );
         break;
     case 'bob-missing-links@' . $_SERVER['HTTP_HOST']:
-        echo json_encode([
+        echo json_encode(
+            [
                 'subject' => 'acct:' . $handle,
                 'aliases' => [
                     'http//' . $_SERVER['HTTP_HOST'] . '/accounts/' . $preferredUsername,
                 ],
-            ]
-            , JSON_PRETTY_PRINT
+            ],
+            JSON_PRETTY_PRINT
         );
         break;
     case 'bob-links-arrays@' . $_SERVER['HTTP_HOST']:
-        echo json_encode([
+        echo json_encode(
+            [
                 'subject' => ['acct:' . $handle],
                 'aliases' => [
                     'http//' . $_SERVER['HTTP_HOST'] . '/accounts/' . $preferredUsername,
@@ -85,12 +90,13 @@ switch ($handle) {
                 'links' => [
                     'href' => 'http://' . $_SERVER['HTTP_HOST'] . '/accounts/' . $preferredUsername
                 ]
-            ]
-            , JSON_PRETTY_PRINT
+            ],
+            JSON_PRETTY_PRINT
         );
         break;
     case 'bob-links-missing-rel@' . $_SERVER['HTTP_HOST']:
-        echo json_encode([
+        echo json_encode(
+            [
                 'subject' => ['acct:' . $handle],
                 'aliases' => [
                     'http//' . $_SERVER['HTTP_HOST'] . '/accounts/' . $preferredUsername,
@@ -101,12 +107,11 @@ switch ($handle) {
                         'href' => 'http://' . $_SERVER['HTTP_HOST'] . '/accounts/' . $preferredUsername
                     ]
                 ]
-            ]
-            , JSON_PRETTY_PRINT
+            ],
+            JSON_PRETTY_PRINT
         );
         break;
     default:
         response404();
         break;
 }
-        

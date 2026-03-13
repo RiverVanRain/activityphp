@@ -47,7 +47,8 @@ abstract class Validator
         }
 
         // Perform validation
-        if (isset(self::$validators[$name])
+        if (
+            isset(self::$validators[$name])
             && TypeConfiguration::get('undefined_properties') === 'strict'
         ) {
             return self::$validators[$name]->validate(
@@ -62,7 +63,8 @@ abstract class Validator
             ucfirst($name)
         );
 
-        if (class_exists($validatorName)
+        if (
+            class_exists($validatorName)
             && TypeConfiguration::get('undefined_properties') === 'strict'
         ) {
             self::add($name, $validatorName);

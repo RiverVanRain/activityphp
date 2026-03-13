@@ -13,7 +13,7 @@ namespace ActivityPhp\Server\Activity;
 
 /**
  * Interface for all activity handlers
- */ 
+ */
 interface HandlerInterface
 {
     /**

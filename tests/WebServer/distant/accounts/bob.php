@@ -10,7 +10,8 @@ $preferredUsername = substr($validAccount, 0, strpos($validAccount, '@'));
 $publicKey = file_get_contents(dirname(__DIR__) . '/keys/public.pem');
 
 header('Content-Type: application/jrd+json');
-echo json_encode([
+echo json_encode(
+    [
         'id'   => 'http://' . $_SERVER['HTTP_HOST'] . '/accounts/' . $preferredUsername,
         'type' => 'Person',
         'preferredUsername' => $preferredUsername,
@@ -20,8 +21,8 @@ echo json_encode([
             "id"           => "https://my-example.com/actor#main-key",
             "owner"        => "https://my-example.com/actor",
             'publicKeyPem' => $publicKey,
-        
+
         ]
-    ]
-    , JSON_PRETTY_PRINT
+    ],
+    JSON_PRETTY_PRINT
 );

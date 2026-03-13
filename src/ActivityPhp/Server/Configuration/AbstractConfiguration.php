@@ -15,7 +15,7 @@ use Exception;
 
 /**
  * Abstract methods for configurations classes
- */ 
+ */
 abstract class AbstractConfiguration
 {
     /**
@@ -25,7 +25,7 @@ abstract class AbstractConfiguration
     {
         $this->setArray($params);
     }
-    
+
     /**
      * Get a config value
      *
@@ -56,13 +56,11 @@ abstract class AbstractConfiguration
             } elseif (!isset($this->$key) && !property_exists($this, $key)) {
                 throw new Exception(
                     "Configuration parameter '$key' does not exist"
-                );                
+                );
             } else {
                 // @todo Should be validated
                 $this->$key = $value;
             }
         }
     }
-
-    
 }

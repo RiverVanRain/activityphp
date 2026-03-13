@@ -23,12 +23,12 @@ use Symfony\Component\HttpFoundation\Response;
 
 /**
  * A server-side inbox
- */ 
+ */
 class Inbox extends AbstractBox
 {
     /**
      * Inbox constructor
-     * 
+     *
      * @param  \ActivityPhp\Server\Actor $actor An actor
      * @param  \ActivityPhp\Server $server
      */
@@ -42,7 +42,7 @@ class Inbox extends AbstractBox
 
     /**
      * Post a message to current actor
-     * 
+     *
      * @param  \Symfony\Component\HttpFoundation\Request $request
      * @return \Symfony\Component\HttpFoundation\Response
      */
@@ -60,8 +60,8 @@ class Inbox extends AbstractBox
             );
 
             // Check current actor can post
-            
-            
+
+
             // Get content
             $payload = Util::decodeJson(
                 (string)$request->getContent()
@@ -69,10 +69,10 @@ class Inbox extends AbstractBox
 
             // Cast as an ActivityStreams type
             $activity = Type::create($payload);
-
         } catch (Exception $exception) {
             $this->getServer()->logger()->error(
-                $this->actor->get()->preferredUsername. ':' . __METHOD__, [
+                $this->actor->get()->preferredUsername . ':' . __METHOD__,
+                [
                     $exception->getMessage()
                 ]
             );

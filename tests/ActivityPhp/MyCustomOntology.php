@@ -7,9 +7,9 @@ use ActivityPhp\Type\OntologyBase ;
 class MyCustomOntology extends OntologyBase
 {
     /**
-     * A definition of custom's ontology to overload Activity 
+     * A definition of custom's ontology to overload Activity
      * Streams vocabulary.
-     * 
+     *
      * @var array
      */
     protected static $definitions = [

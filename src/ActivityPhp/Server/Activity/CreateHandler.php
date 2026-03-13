@@ -15,7 +15,7 @@ use ActivityPhp\Type\Core\AbstractActivity;
 
 /**
  * A Create activity handler
- */ 
+ */
 class CreateHandler extends AbstractHandler
 {
     /**
@@ -25,19 +25,19 @@ class CreateHandler extends AbstractHandler
 
     /**
      * Constructor
-     * 
+     *
      * @param \ActivityPhp\Type\Core\AbstractActivity $activity
      */
     public function __construct(AbstractActivity $activity)
     {
         parent::__construct();
 
-        $this->activity = $activity;   
+        $this->activity = $activity;
     }
 
     /**
      * Handle activity
-     * 
+     *
      * @return $this
      */
     public function handle()
@@ -47,7 +47,7 @@ class CreateHandler extends AbstractHandler
             'location',
             $this->activity->get('id')
         );
-        
+
         return $this;
     }
 }

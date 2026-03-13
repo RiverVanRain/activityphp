@@ -81,8 +81,7 @@ abstract class Util
             && preg_match(
                 '#^magnet:\?xs=(https?)://.*$#iu',
                 urldecode($value)
-
-        );
+            );
     }
 
     /**
@@ -143,7 +142,8 @@ abstract class Util
     public static function validateUnits($value): bool
     {
         if (is_string($value)) {
-            if (in_array($value, self::$units)
+            if (
+                in_array($value, self::$units)
                 || self::validateUrl($value)
             ) {
                 return true;
@@ -198,8 +198,9 @@ abstract class Util
         bool $strict = false
     ): bool {
         foreach ($properties as $property) {
-            if (is_object($item)
-              && ! property_exists($item, $property)
+            if (
+                is_object($item)
+                && ! property_exists($item, $property)
             ) {
                 if ($strict) {
                     throw new Exception(
@@ -212,8 +213,9 @@ abstract class Util
                 }
 
                 return false;
-            } elseif (is_array($item)
-              && ! array_key_exists($property, $item)
+            } elseif (
+                is_array($item)
+                && ! array_key_exists($property, $item)
             ) {
                 if ($strict) {
                     throw new Exception(
@@ -286,7 +288,8 @@ abstract class Util
      */
     public static function validateDatetime($value): bool
     {
-        if (! is_string($value)
+        if (
+            ! is_string($value)
             || ! preg_match(
                 '/^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2}):(\d{2})(.*)$/',
                 $value
@@ -320,7 +323,8 @@ abstract class Util
         }
 
         foreach ($classes as $class) {
-            if (get_class($container) === $class
+            if (
+                get_class($container) === $class
                 || is_subclass_of($container, $class)
             ) {
                 return true;
@@ -427,7 +431,8 @@ abstract class Util
             return false;
         }
 
-        if (property_exists($item, 'type')
+        if (
+            property_exists($item, 'type')
             && is_string($item->type)
             && $item->type === $type
         ) {
@@ -448,7 +453,7 @@ abstract class Util
             && preg_match(
                 '/^(((en-GB-oed|i-ami|i-bnn|i-default|i-enochian|i-hak|i-klingon|i-lux|i-mingo|i-navajo|i-pwn|i-tao|i-tay|i-tsu|sgn-BE-FR|sgn-BE-NL|sgn-CH-DE)|(art-lojban|cel-gaulish|no-bok|no-nyn|zh-guoyu|zh-hakka|zh-min|zh-min-nan|zh-xiang))|((([A-Za-z]{2,3}(-([A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|[A-Za-z]{4}|[A-Za-z]{5,8})(-([A-Za-z]{4}))?(-([A-Za-z]{2}|[0-9]{3}))?(-([A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-([0-9A-WY-Za-wy-z](-[A-Za-z0-9]{2,8})+))*(-(x(-[A-Za-z0-9]{1,8})+))?)|(x(-[A-Za-z0-9]{1,8})+))$/',
                 $value
-        );
+            );
     }
 
     /**
@@ -462,7 +467,7 @@ abstract class Util
             && preg_match(
                 '/^([^<]+)$/',
                 $value
-        );
+            );
     }
 
     /**
@@ -476,7 +481,7 @@ abstract class Util
             && preg_match(
                 '#^(([\w]+[\w\-]+[\w+])/(([\w]+[\w\-\.\+]+[\w]+)|(\*));?)+$#',
                 $value
-        );
+            );
     }
 
     /**

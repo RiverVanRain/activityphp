@@ -67,8 +67,10 @@ class ObjectValidator implements ValidatorInterface
                     $item = Util::arrayToType($item);
                 }
 
-                if (is_object($item)
-                    && Util::subclassOf($item, [ObjectType::class], true)) {
+                if (
+                    is_object($item)
+                    && Util::subclassOf($item, [ObjectType::class], true)
+                ) {
                     continue;
                 }
 

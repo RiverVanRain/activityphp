@@ -43,7 +43,8 @@ class WebFingerFactory
      */
     public static function get(string $handle, string $scheme = 'https')
     {
-        if (! preg_match(
+        if (
+            ! preg_match(
                 '/^@?(?P<user>[\w\-\.]+)@(?P<host>[\w\.\-]+)(?P<port>:[\d]+)?$/',
                 $handle,
                 $matches
@@ -71,10 +72,10 @@ class WebFingerFactory
             (new Request(
                 self::$server->config('http.timeout'),
                 self::$server->config('http.agent'),
-				self::$server->config('http.host'),
-				self::$server->config('http.date'),
-				self::$server->config('http.digest'),
-				self::$server->config('http.signature'),
+                self::$server->config('http.host'),
+                self::$server->config('http.date'),
+                self::$server->config('http.digest'),
+                self::$server->config('http.signature'),
             ))->get($url)
         );
 

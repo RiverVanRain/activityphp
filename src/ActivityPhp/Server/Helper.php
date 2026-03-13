@@ -48,11 +48,13 @@ abstract class Helper
      */
     public static function validateAcceptHeader($accept, $strict = false)
     {
-        if (is_string($accept)
+        if (
+            is_string($accept)
             && in_array($accept, self::$acceptHeaders)
         ) {
             return true;
-        } elseif (is_array($accept)
+        } elseif (
+            is_array($accept)
             && count(
                 array_intersect($accept, self::$acceptHeaders)
             )
@@ -82,7 +84,7 @@ abstract class Helper
     public static function fetch($url, $timeout = 10.0)
     {
         return Util::decodeJson(
-           (new HttpRequest($timeout))
+            (new HttpRequest($timeout))
                 ->setMaxRetries(
                     Server::server()->config('http')->get('retries'),
                     Server::server()->config('http')->get('sleep')

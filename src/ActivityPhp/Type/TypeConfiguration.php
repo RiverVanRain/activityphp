@@ -53,7 +53,8 @@ abstract class TypeConfiguration
      */
     public static function set(string $name, $value): void
     {
-        if (isset(self::$allowed[$name])
+        if (
+            isset(self::$allowed[$name])
             && ! in_array($value, self::$allowed[$name])
         ) {
             throw new Exception(

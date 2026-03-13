@@ -15,7 +15,7 @@ use ActivityPhp\Type\Core\AbstractActivity;
 
 /**
  * A Like activity handler
- */ 
+ */
 class LikeHandler extends AbstractHandler
 {
     /**
@@ -25,19 +25,19 @@ class LikeHandler extends AbstractHandler
 
     /**
      * Constructor
-     * 
+     *
      * @param \ActivityPhp\Type\Core\AbstractActivity $activity
      */
     public function __construct(AbstractActivity $activity)
     {
         parent::__construct();
 
-        $this->activity = $activity;   
+        $this->activity = $activity;
     }
 
     /**
      * Handle activity
-     * 
+     *
      * @return $this
      */
     public function handle()

@@ -86,7 +86,7 @@ class AbstractObjectTest extends TestCase
      * tests getProperties() method
      */
     public function testGetProperties()
-    {	
+    {
         $expected = [
             'type',
             'id',
@@ -102,7 +102,7 @@ class AbstractObjectTest extends TestCase
         ];
 
         $this->assertEquals(
-            $expected, 
+            $expected,
             Type::create('Link')->getProperties()
         );
     }
@@ -111,7 +111,7 @@ class AbstractObjectTest extends TestCase
      * tests toArray() method
      */
     public function testToArrayWithEmptyProperties()
-    {	
+    {
         $expected = [
             'type' => 'Link',
             'name' => 'An example',
@@ -119,7 +119,7 @@ class AbstractObjectTest extends TestCase
         ];
 
         $this->assertEquals(
-            $expected, 
+            $expected,
             Type::create('Link', $expected)->toArray()
         );
     }
@@ -138,7 +138,7 @@ class AbstractObjectTest extends TestCase
         ];
 
         $this->assertEquals(
-            $expected, 
+            $expected,
             Type::create('MyCustomType', $expected)->toArray()
         );
     }
@@ -147,13 +147,13 @@ class AbstractObjectTest extends TestCase
      * tests toArray() method
      */
     public function testToArrayWithSomePropertiesSet()
-    {	
+    {
         $expected = [
             'type' => 'Link',
         ];
 
         $this->assertEquals(
-            $expected, 
+            $expected,
             Type::create('Link')->toArray()
         );
     }
@@ -163,7 +163,7 @@ class AbstractObjectTest extends TestCase
      * tests toJson() method
      */
     public function testToJson()
-    {	
+    {
         $expected = [
             'type' => 'Link',
         ];
@@ -178,7 +178,7 @@ class AbstractObjectTest extends TestCase
      * tests toJson() method
      */
     public function testToJsonWithSomeProperties()
-    {	
+    {
         $expected = [
             'type' => 'Link',
             'name' => 'An example',
@@ -195,7 +195,7 @@ class AbstractObjectTest extends TestCase
      * tests toJson() method and PHP JSON options
      */
     public function testToJsonWithPhpOptions()
-    {	
+    {
         $expected = [
             'type' => 'Link',
             'name' => 'An example',
@@ -204,10 +204,10 @@ class AbstractObjectTest extends TestCase
 
         $this->assertEquals(
             '{' . "\n" .
-'    "type": "Link",' . "\n" .
-'    "name": "An example",' . "\n" .
-'    "href": "http:\/\/example.com"' . "\n" .
-'}',
+            '    "type": "Link",' . "\n" .
+            '    "name": "An example",' . "\n" .
+            '    "href": "http:\/\/example.com"' . "\n" .
+            '}',
             Type::create($expected)->toJson(JSON_PRETTY_PRINT)
         );
     }
@@ -229,7 +229,7 @@ class AbstractObjectTest extends TestCase
     public function testHasCheck()
     {
         $object = Type::create('ObjectType');
-        
+
         $this->assertEquals(
             false,
             $object->has('UndefinedProperty')

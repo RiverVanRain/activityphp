@@ -16,12 +16,12 @@ use Exception;
 
 /**
  * Ontologies configuration stack
- */ 
+ */
 class OntologiesConfiguration extends AbstractConfiguration
 {
     /**
      * Dispatch configuration parameters
-     * 
+     *
      * @param array $params
      */
     public function __construct(array $params = [])
@@ -35,8 +35,8 @@ class OntologiesConfiguration extends AbstractConfiguration
                 }
             // internal : it's an integer key
             } else {
-                Ontology::load($class); 
+                Ontology::load($class);
             }
-        }    
+        }
     }
 }

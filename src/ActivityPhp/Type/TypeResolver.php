@@ -162,7 +162,8 @@ abstract class TypeResolver
      */
     public static function isScope($item, string $poolname = 'all')
     {
-        if (!is_object($item)
+        if (
+            !is_object($item)
             || !isset($item->type)
             || !is_string($item->type)
         ) {

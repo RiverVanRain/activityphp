@@ -19,7 +19,7 @@ use Exception;
 
 /**
  * A base class for server-side box
- */ 
+ */
 abstract class AbstractBox
 {
     /**
@@ -46,7 +46,7 @@ abstract class AbstractBox
 
     /**
      * Box constructor
-     * 
+     *
      * @param  \ActivityPhp\Server\Actor $actor
      * @param  \ActivityPhp\Server $server
      */
@@ -58,7 +58,7 @@ abstract class AbstractBox
 
     /**
      * Server instance setter
-     * 
+     *
      * @param \ActivityPhp\Server $server
      */
     public function setServer(Server $server)
@@ -68,7 +68,7 @@ abstract class AbstractBox
 
     /**
      * Server instance getter
-     * 
+     *
      * @return \ActivityPhp\Server
      */
     public function getServer()
@@ -78,7 +78,7 @@ abstract class AbstractBox
 
     /**
      * Configuration shortcut
-     * 
+     *
      * @param  string $param
      * @return mixed A configuration parameter or an instance of
      *  \ActivityPhp\Server\Configuration\AbstractConfiguration
@@ -90,7 +90,7 @@ abstract class AbstractBox
 
     /**
      * Wrap an object into a Create activity
-     * 
+     *
      * @see    https://www.w3.org/TR/activitypub/#object-without-create
      *
      * @param  \ActivityPhp\Type\AbstractObject $object
@@ -128,7 +128,7 @@ abstract class AbstractBox
                 ['/<handle>/', '/<id>/'],
                 [$this->actor->get()->preferredUsername, 'new-id'],
                 $this->config('instance.notePath')
-        );
+            );
 
         // Create an id for activity
         // @todo An id must be generated for the activity
@@ -139,7 +139,7 @@ abstract class AbstractBox
                 ['/<handle>/', '/<id>/'],
                 [$this->actor->get()->preferredUsername, 'new-id'],
                 $this->config('instance.activityPath')
-        );
+            );
 
         // Attach as an object property
         $activity->object = $copy->toArray();
@@ -149,7 +149,7 @@ abstract class AbstractBox
 
     /**
      * Get actor id
-     * 
+     *
      * @todo Handle non local actors
      * @return string
      */

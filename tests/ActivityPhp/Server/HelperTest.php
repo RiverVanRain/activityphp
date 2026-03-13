@@ -30,7 +30,7 @@ class HelperTest extends TestCase
             ], false                                                               ], # Refused (array input)
 
         ];
-	}
+    }
 
     #[DataProvider('getAcceptHeaderScenarios')]
     public function testAcceptHeaderScenarios($input, $expected)
